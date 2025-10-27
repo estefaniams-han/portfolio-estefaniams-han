@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="experience">
+        <canvas id="experience-canvas"></canvas>
+    </div>
+
+    <div class="modal hidden">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h1 class="modal-title">Project One</h1>
+                <div class="modal-header-buttons">
+                    <a href="#" 
+                        target = "_blank" 
+                        rel="noopener noreferrer"
+                        class="modal-project-visit-button hidden"
+                        >View Project</a>
+                    <button class="modal-exit-button">exit</button>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="modal-content-wrapper">
+
+                    <div class="modal-project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias natus iure, atque magnam, libero nisi quasi totam consectetur ipsa minima voluptas odit, possimus dolor veritatis facilis cumque aperiam repudiandae nesciunt.
+                    
+                    Aut aliquid culpa facilis quos alias saepe error natus amet enim tenetur veritatis magni nemo maiores expedita assumenda ex nobis, adipisci, quas placeat autem at officiis voluptates sequi corrupti! Sapiente!
+                    
+                    Ullam modi cum illo nam doloribus amet rerum vero! Incidunt, mollitia! Debitis a mollitia ipsa, dicta sapiente numquam animi assumenda necessitatibus corporis perferendis repellat nostrum sequi impedit nobis enim vitae.</div>
+                    
+                    <div class="modal-project-image">
+                        <img src="" alt="Project image" class="modal-image hidden">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <!-- Load GSAP separately so window.gsap exists for your module -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+
+    </script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
