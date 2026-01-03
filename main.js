@@ -16,10 +16,10 @@ const sizes = {
 
 // physics stuff
 const GRAVITY = 30;
-const CAPSULE_RADIUS = 0.35;
+const CAPSULE_RADIUS = 0.70;
 const CAPSULE_HEIGHT = 1;
-const JUMP_HEIGHT = 8;
-const MOVE_SPEED = 10;
+const JUMP_HEIGHT = 11;
+const MOVE_SPEED = 18;
 
 
 let character = {
@@ -53,31 +53,35 @@ renderer.toneMappingExposure = 2.0;
 
 const modalContent = {
     Billboard: {
-        title: 'lorem ipsum dolor sit amet',
+        title: 'Inside Out Emotion Classifier 🎭',
         description: `
-            lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            An NLP model inspired by Pixar's Inside Out that reads text and predicts one of
+            seven emotions: anger, disgust, fear, sadness, joy, surprise, or neutral.
+            Trained on Google Research's GoEmotions (28 emotions), mapped to the Inside Out
+            categories for a clean 7-class output.
         `,
-        link: 'https://example.com'
+        link: 'https://github.com/estefaniams-han/inside-out-emotion-classifier',
+        img: './img/inside_out_classifier.png'
     },
     Billboard001: {
-        title: 'lorem ipsum dolor sit amet',
+        title: 'Voxel Park 🌳',
         description: `
-            lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-        `,
-        link: 'https://example.com'
-    },
-    Billboard002: {
-        title: 'Voxel Park',
-        description: `
-            Welcome to Voxel Park 🌳✨ — a 3D voxel-style park created in Blender.  
+            Welcome to Voxel Park — a 3D voxel-style park created in Blender.  
             This project is a blend of creativity, geometry, and art — combining my love for both tech and design.  
         `,
         link: 'https://github.com/estefaniams-han/portfolio-estefaniams-han',
         img: './img/voxel_park.jpeg'
+    },
+    Billboard002: {
+        title: 'Work Buddy - Pomodoro Desktop App 💻',
+        description: `
+            An adorable and functional Pomodoro desktop app built with Electron, React,
+            and Vite. Work Buddy helps you stay productive using the Pomodoro technique,
+            all while being accompanied by an animated fox and bunny that change states
+            based on your activity.
+        `,
+        link: 'https://github.com/estefaniams-han/desktop_pomodoro',
+        img: './img/work_buddy.png'
     },
     Cube011: {
     title: 'About Me',
