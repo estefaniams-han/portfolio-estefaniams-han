@@ -12,9 +12,14 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
 const modalOverlay = document.querySelector(".modal-overlay");
 const cvSticker = document.querySelector(".cv-sticker");
+const loaderElement = document.getElementById("loader");
+const loaderText = document.getElementById("loader-text");
 
+const loadingManager = new THREE.LoadingManager();
 
 
 // physics stuff
@@ -52,7 +57,6 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.shadowMap.enabled = true;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 2.0;
-
 
 const modalContent = {
     Billboard: {
@@ -223,7 +227,23 @@ const intersectObjectsNames = [
     'Cube011' // about me
 ];
 
-const loader = new GLTFLoader();
+loadingManager.onProgress = (url, loaded, total) => {
+  const progress = Math.round((loaded / total) * 100);
+  loaderText.textContent = `Loading ${progress}%`;
+};
+
+loadingManager.onLoad = () => {
+  // Pequeña animación opcional
+  gsap.to(loaderElement, {
+    opacity: 0,
+    duration: 0.6,
+    onComplete: () => {
+      loaderElement.style.display = "none";
+    }
+  });
+};
+
+const loader = new GLTFLoader(loadingManager);
 
 loader.load( './portfolio.glb', function ( glb ) {
     glb.scene.traverse((child) => {
@@ -261,8 +281,8 @@ loader.load( './portfolio.glb', function ( glb ) {
 const sun = new THREE.DirectionalLight( 0xFFFFFF );
 sun.castShadow = true;
 sun.position.set( -250, 50, 0 );
-sun.shadow.mapSize.width = 4096;
-sun.shadow.mapSize.height = 4096;
+sun.shadow.mapSize.width  = isMobile ? 2048 : 4096;
+sun.shadow.mapSize.height = isMobile ? 2048 : 4096;
 sun.shadow.camera.left = -250;
 sun.shadow.camera.right = 100;
 sun.shadow.camera.top = 100;
@@ -309,6 +329,10 @@ function onResize() {
     camera.updateProjectionMatrix();
 
     renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2)
+    );
+
 }
 
 function onClick() {
@@ -491,6 +515,15 @@ function jumpCharacter(meshID){
 
 }
 
+function preloadImages(urls) {
+  urls.forEach((url) => {
+    const img = new Image();
+    img.decoding = "async";
+    img.loading = "eager";
+    img.src = url;
+  });
+}
+
 modalExitButton.addEventListener('click', hideModal);
 window.addEventListener('resize', onResize);
 window.addEventListener( 'click', onClick);
@@ -504,6 +537,18 @@ window.addEventListener("keydown", (e) => {
 
   if (e.key === "Enter" || e.key === "Escape") {
     hideModal();
+  }
+});
+window.addEventListener("load", () => {
+  const urls = Object.values(modalContent)
+    .map(v => v.img)
+    .filter(Boolean);
+
+  // en cuanto el browser tenga un respiro
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(() => preloadImages(urls), { timeout: 2000 });
+  } else {
+    setTimeout(() => preloadImages(urls), 800);
   }
 });
 
