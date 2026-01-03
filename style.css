@@ -106,6 +106,25 @@
     gap: 24px;
 }
 
+/* ====== PROJECT MODALS: layout pro ====== */
+.modal:not(.instructions-modal) .modal-content-wrapper{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* texto un poquito más grande */
+  gap: 24px;
+  align-items: start;
+}
+
+/* En pantallas chicas, vuelve a columna */
+@media (max-width: 768px){
+  .modal:not(.instructions-modal) .modal-content-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
 .modal-project-visit-button {
     display: inline-block;
     background-color: #4a90e2;
@@ -131,7 +150,7 @@
 }
 
 .modal-project-description {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.8;
     color: #fff;
     text-align: justify;
@@ -404,4 +423,44 @@
   background: rgba(0,0,0,0.20);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* =========================
+   ABOUT ME MODAL
+   ========================= */
+
+.modal:not(.instructions-modal) .about-me{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal:not(.instructions-modal) .about-me p{
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* Links */
+.modal:not(.instructions-modal) .about-links{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.modal:not(.instructions-modal) .about-links a{
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.modal:not(.instructions-modal) .about-links a:hover{
+  background-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
 }

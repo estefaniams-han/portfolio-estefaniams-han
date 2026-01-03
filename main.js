@@ -59,7 +59,7 @@ const modalContent = {
         description: `
             An NLP model inspired by Pixar's Inside Out that reads text and predicts one of
             seven emotions: anger, disgust, fear, sadness, joy, surprise, or neutral.
-            Trained on Google Research's GoEmotions (28 emotions), mapped to the Inside Out
+            <br>Trained on Google Research's GoEmotions (28 emotions), mapped to the Inside Out
             categories for a clean 7-class output.
         `,
         link: 'https://github.com/estefaniams-han/inside-out-emotion-classifier',
@@ -68,19 +68,16 @@ const modalContent = {
     Billboard001: {
         title: 'Voxel Park 🌳',
         description: `
-            Welcome to Voxel Park — a 3D voxel-style park created in Blender.  
-            This project is a blend of creativity, geometry, and art — combining my love for both tech and design.  
+            Welcome to my interactive 3D portfolio, a cozy little corner of the web where creativity, code, and curiosity bloom together.
+            This project is a reflection of my love for blending technology and art. <br> Built with <b>Three.js, HTML, CSS, and JavaScript</b>, the entire environment was handcrafted by me in Blender, from the smallest props to the overall world layout.
         `,
         link: 'https://github.com/estefaniams-han/portfolio-estefaniams-han',
         img: './img/voxel_park.jpeg'
     },
     Billboard002: {
-        title: 'Work Buddy - Pomodoro Desktop App 💻',
+        title: 'Pomodoro Desktop App 💻',
         description: `
-            An adorable and functional Pomodoro desktop app built with Electron, React,
-            and Vite. Work Buddy helps you stay productive using the Pomodoro technique,
-            all while being accompanied by an animated fox and bunny that change states
-            based on your activity.
+            <b>Work Buddy</b> is an adorable yet highly functional Pomodoro desktop application built with <b>Electron, React, and Vite</b>. <br>Designed to make productivity feel lighter and more enjoyable, the app helps you stay focused using the Pomodoro technique while keeping you company with a charming animated fox and bunny that react to your workflow.
         `,
         link: 'https://github.com/estefaniams-han/desktop_pomodoro',
         img: './img/work_buddy.png'
@@ -88,16 +85,23 @@ const modalContent = {
     Cube011: {
     title: 'About Me',
     description: `
-        Hi! I'm Estefanía "Tefi" Marmolejo 💕<br>
-        Computer Systems Engineer turned AI Engineer and 3D enthusiast 🎮<br><br>
-        
-        Passionate about Applied AI, Machine Learning, Cloud Tech, and 3D Design.<br>
-        Always learning, building, and blending code with creativity ✨<br><br>
+        <div class="about-me">
 
-        🌸 I believe technology (especially AI) can make the world better.<br>
-        🎶 Guitar lover, creative spirit, and always chasing sparkly things! ✨<br>
-        💡 Currently preparing for a Master's in Applied AI.
-    `
+        Hi, I’m Estefania Marmolejo, a Computer Systems Engineer with a strong interest in applied artificial intelligence, cloud technologies, and interactive systems.
+        <br><br>
+        I am currently preparing to pursue a Master’s degree in Medical IT Convergence Engineering in South Korea, with the goal of exploring the intersection between AI, healthcare technologies, and intelligent systems. I enjoy building solutions that combine solid engineering principles with thoughtful design and real-world impact.
+
+        <div class="about-links">
+            <a href="https://instagram.com/imtefii" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/estefania-marmolejo/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/estefaniams-han" target="_blank">GitHub</a>
+            <a href="mailto:esmarmolejosa@gmail.com">Email</a>
+        </div>
+
+        </div>
+    `,
+    link: null,
+    img: './img/about_me.jpeg' 
     },
     Controls: {
     title: "How to Play",
