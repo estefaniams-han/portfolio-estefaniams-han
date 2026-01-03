@@ -12,6 +12,8 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
+const modalOverlay = document.querySelector(".modal-overlay");
+
 
 
 // physics stuff
@@ -97,6 +99,54 @@ const modalContent = {
         💡 Currently preparing for a Master's in Applied AI.
     `
     },
+    Controls: {
+    title: "How to Play",
+    description: `
+        <div class="controls">
+
+        <!-- Move -->
+        <div class="controls-row">
+            <span class="kbd">W</span>
+            <span class="kbd">A</span>
+            <span class="kbd">S</span>
+            <span class="kbd">D</span>
+        </div>
+
+        <div class="controls-or">or</div>
+
+        <div class="controls-row">
+            <span class="kbd">↑</span>
+            <span class="kbd">←</span>
+            <span class="kbd">↓</span>
+            <span class="kbd">→</span>
+        </div>
+
+        <div class="controls-label">Move around the park</div>
+
+        <!-- Actions row: R + Click -->
+        <div class="controls-actions">
+            <div class="action">
+            <span class="kbd">R</span>
+            <span class="action-text">Respawn</span>
+            </div>
+
+            <div class="action">
+            <span class="mouse">
+                <span class="mouse-btn"></span>
+            </span>
+            <span class="action-text">Click to interact with objects</span>
+            </div>
+        </div>
+
+        <div class="controls-footer"><b>Press ENTER</b> to start</div>
+
+        </div>
+    `,
+    link: null,
+    img: null
+    }   
+
+
 };
 
 const modal = document.querySelector('.modal');
@@ -110,32 +160,42 @@ const modalVisitProjectButton = document.querySelector('.modal-project-visit-but
 
 function showModal(id){
     const content = modalContent[id];
-    if(content){
-        modalTitle.textContent = content.title;
-        modalProjectDescription.innerHTML = content.description;
-        
-        // Mostrar u ocultar imagen según esté disponible
-        if(content.img){
-            modalProjectImage.src = content.img;
-            modalProjectImage.classList.remove('hidden');
-        } else {
-            modalProjectImage.src = '';
-            modalProjectImage.classList.add('hidden');
-        }
-        
-        if(content.link){
-            modalVisitProjectButton.href = content.link;
-            modalVisitProjectButton.classList.remove('hidden');
-        } else{
-            modalVisitProjectButton.classList.add('hidden');
-        }
+    if (!content) return;
 
-        modal.classList.toggle('hidden');
+    const isInstructions = id === "Controls";
+
+    // marcar si es modal de instrucciones
+    modal.classList.toggle("instructions-modal", isInstructions);
+    modalOverlay.classList.toggle("blur", isInstructions); // ✅ blur solo aquí
+
+
+    modalTitle.textContent = content.title;
+    modalProjectDescription.innerHTML = content.description;
+
+
+    // Mostrar u ocultar imagen según esté disponible
+    if(content.img){
+        modalProjectImage.src = content.img;
+        modalProjectImage.classList.remove('hidden');
+    } else {
+        modalProjectImage.src = '';
+        modalProjectImage.classList.add('hidden');
     }
+    
+    if(content.link){
+        modalVisitProjectButton.href = content.link;
+        modalVisitProjectButton.classList.remove('hidden');
+    } else{
+        modalVisitProjectButton.classList.add('hidden');
+    }
+
+    modal.classList.remove("hidden");
+    modalOverlay.classList.remove("hidden");
 }
 
 function hideModal(){
-    modal.classList.toggle('hidden');
+    modal.classList.add('hidden');
+    modalOverlay.classList.add("hidden");
 }
 
 let intersectObject = '';
@@ -423,6 +483,16 @@ window.addEventListener('resize', onResize);
 window.addEventListener( 'click', onClick);
 window.addEventListener( 'pointermove', onPointerMove );
 window.addEventListener( 'keydown', onKeyDown);
+window.addEventListener("load", () => {
+  showModal("Controls");
+});
+window.addEventListener("keydown", (e) => {
+  if (modal.classList.contains("hidden")) return;
+
+  if (e.key === "Enter" || e.key === "Escape") {
+    hideModal();
+  }
+});
 
 
 function animate() {
