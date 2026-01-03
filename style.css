@@ -464,3 +464,90 @@
   background-color: rgba(255,255,255,0.25);
   transform: translateY(-2px);
 }
+
+.cv-sticker{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+
+  width: 130px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+
+  text-decoration: none;
+  transform: rotate(8deg);
+  transform-origin: center;
+
+  /* sticker look */
+  background: #f2e5c8;           /* papel */
+  border: 4px solid #ffffff;     /* borde blanco */
+  box-shadow:
+    0 10px 0 #6b3b1e,            /* sombra “bloque” */
+    0 18px 30px rgba(0,0,0,0.22);
+
+  /* feeling */
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+
+  
+}
+
+/* Borde interior tipo sello */
+.cv-sticker::before{
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 3px dashed rgba(138, 79, 43, 0.65);
+  pointer-events: none;
+}
+
+/* “CV” */
+.cv-sticker-text{
+  font-size: 14px;     /* más pequeño */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.1;
+  color: #4f7a3d;
+  padding: 0 6px;
+}
+
+/* Hover / active: sticker bounce */
+.cv-sticker:hover{
+  transform: rotate(6deg) translateY(-2px);
+  filter: brightness(1.02);
+}
+
+.cv-sticker:active{
+  transform: rotate(6deg) translateY(4px);
+  box-shadow:
+    0 6px 0 #6b3b1e,
+    0 12px 18px rgba(0,0,0,0.18);
+}
+
+/* Tooltip */
+.cv-sticker-tooltip{
+  position: absolute;
+  right: 125px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+
+.cv-sticker:hover .cv-sticker-tooltip{
+  opacity: 1;
+}
+
+

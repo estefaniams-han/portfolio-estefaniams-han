@@ -13,6 +13,7 @@ const sizes = {
     height: window.innerHeight
 }
 const modalOverlay = document.querySelector(".modal-overlay");
+const cvSticker = document.querySelector(".cv-sticker");
 
 
 
@@ -170,8 +171,11 @@ function showModal(id){
 
     // marcar si es modal de instrucciones
     modal.classList.toggle("instructions-modal", isInstructions);
-    modalOverlay.classList.toggle("blur", isInstructions); // ✅ blur solo aquí
+    modalOverlay.classList.toggle("blur", isInstructions); 
 
+    if (cvSticker) {
+    cvSticker.classList.toggle("hidden", isInstructions);
+    }
 
     modalTitle.textContent = content.title;
     modalProjectDescription.innerHTML = content.description;
@@ -200,6 +204,11 @@ function showModal(id){
 function hideModal(){
     modal.classList.add('hidden');
     modalOverlay.classList.add("hidden");
+    modalOverlay.classList.remove("blur");
+
+    if (cvSticker) {
+    cvSticker.classList.remove("hidden");
+  }
 }
 
 let intersectObject = '';
