@@ -54,7 +54,7 @@ root/
 
 This project is my love letter to **3D modeling** and **interactive storytelling**. I’ve always believed technology can express beauty, softness, and emotion, and this portfolio is my way of proving that
 
-Inspired by [Andrew Woan’s](https://www.youtube.com/watch?v=X3pPAdQBKHo creations and the idea of *Digital Gardens*, this world evolves as I grow, always learning, always adding new blooms.
+Inspired by [Andrew Woan’s](https://www.youtube.com/watch?v=X3pPAdQBKHo) creations and the idea of *Digital Gardens*, this world evolves as I grow, always learning, always adding new blooms.
 
 ---
 
