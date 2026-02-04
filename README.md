@@ -60,7 +60,7 @@ Inspired by [Andrew Woan’s](https://www.youtube.com/watch?v=X3pPAdQBKHo) creat
 
 ## About Me
 
-Hi! I’m **Tefi**, an **AI Engineer** and **Systems Engineer** who’s passionate about **Applied AI**, **Data Science**, and **3D development**. I’m endlessly curious, creative, and in love with the process of bringing ideas to life, whether through data pipelines or pastel‑colored 3D worlds.
+Hi! I’m **Tefi**, an **AI Engineer** and **Systems Engineer** who’s passionate about **Applied AI**, **Human-Centered Technologies**, and **3D development**. I’m endlessly curious, creative, and in love with the process of bringing ideas to life, whether through data pipelines or pastel‑colored 3D worlds.
 
 ---
 
