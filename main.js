@@ -92,9 +92,9 @@ const modalContent = {
     description: `
         <div class="about-me">
 
-        Hi, I’m Estefania Marmolejo, a Computer Systems Engineer with a strong interest in applied artificial intelligence, cloud technologies, and interactive systems.
+        Hi, I'm Estefanía Marmolejo, a Computer Systems Engineer with a strong interest in applied AI, cloud technologies, and interactive systems.
         <br><br>
-        I am currently preparing to pursue a Master’s degree in Medical IT Convergence Engineering in South Korea, with the goal of exploring the intersection between AI, healthcare technologies, and intelligent systems. I enjoy building solutions that combine solid engineering principles with thoughtful design and real-world impact.
+        I'm driven by curiosity and systems thinking—understanding how complex components interact, and turning that understanding into practical, meaningful solutions. I enjoy building technology that is not only functional, but thoughtfully designed and grounded in real-world use.
 
         <div class="about-links">
             <a href="https://instagram.com/imtefii" target="_blank">Instagram</a>
@@ -145,6 +145,10 @@ const modalContent = {
             </span>
             <span class="action-text">Click to interact with objects</span>
             </div>
+        </div>
+
+        <div class="controls-tip">
+            Try clicking on the animals, billboards, and the portfolio to discover surprises!
         </div>
 
         <div class="controls-footer"><b>Press ENTER</b> to start</div>
